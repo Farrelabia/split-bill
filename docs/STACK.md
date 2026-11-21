@@ -1,6 +1,6 @@
 # Stack dan panduan menjalankan Split Bill
 
-Split Bill memakai Express untuk API dan MongoDB untuk menyimpan tagihan. Next.js sudah disiapkan sebagai proyek frontend terpisah. Saat ini frontend menampilkan halaman awal polos dan alur host serta peserta masih menunggu desain.
+Split Bill memakai Express untuk API, MongoDB untuk menyimpan tagihan, dan Next.js sebagai frontend untuk host dan peserta.
 
 ## Stack
 
@@ -9,7 +9,7 @@ Split Bill memakai Express untuk API dan MongoDB untuk menyimpan tagihan. Next.j
 | Runtime | Node.js 22+ dan npm | Menjalankan backend dan frontend. |
 | Backend | JavaScript CommonJS dan Express 5 | Menyediakan REST API CRUD tagihan di port `3000`. |
 | Database | MongoDB Community Server lokal dan driver resmi `mongodb` v6 | Menyimpan dokumen di database `split_bill`, collection `bills`. MongoDB lokal memakai port `27017`. |
-| Frontend | Next.js 16.3.5, App Router, React dan React DOM 19.2.8 | Menyiapkan aplikasi web di port `3001`. |
+| Frontend | Next.js 16.3.5, App Router, React dan React DOM 19.2.8 | Menyajikan aplikasi web di port `3001`. |
 | Pengujian | `node:test`, Postman, dan `curl.exe` | Menjalankan tes otomatis backend dan mencoba endpoint secara manual. |
 
 Versi dependensi yang dipakai saat instalasi dikunci di `package-lock.json` dan `frontend/package-lock.json`.
@@ -23,7 +23,7 @@ Versi dependensi yang dipakai saat instalasi dikunci di `package-lock.json` dan 
 | `routes/bills.js`, `controllers/bills.js` | Rute CRUD, pemeriksaan kode admin, dan respons API. |
 | `models/bill.js` | Validasi data, pembagian rata, dan pembuatan kode akses. |
 | `test/bills.test.js` | Tes logika pembagian, validasi, dan CRUD controller dengan penyimpanan tiruan. |
-| `frontend/app/` | Root layout dan halaman awal Next.js. |
+| `frontend/app/` | Halaman awal, form buat dan edit, serta detail tagihan. |
 
 ## Menjalankan backend di Windows
 
@@ -61,7 +61,7 @@ npm.cmd --prefix frontend ci
 npm.cmd --prefix frontend run dev
 ```
 
-Buka `http://localhost:3001` untuk melihat halaman awal. Untuk memeriksa build produksi, jalankan `npm.cmd --prefix frontend run build`. Untuk menyajikan hasil build, jalankan `npm.cmd --prefix frontend start` ketika dev server sudah dihentikan.
+Buka `http://localhost:3001`. Next.js meneruskan `/api/bills` ke Express di `http://127.0.0.1:3000` secara default. Untuk memeriksa build produksi, jalankan `npm.cmd --prefix frontend run build`. Untuk menyajikan hasil build, jalankan `npm.cmd --prefix frontend start` ketika dev server sudah dihentikan.
 
 ## Menguji API
 
@@ -89,4 +89,4 @@ Untuk cek persistensi, buat tagihan, restart backend, lalu ulangi GET dengan kod
 
 ## Status pengembangan
 
-CRUD, dua kode akses, dan pembagian rata sudah diuji dengan MongoDB lokal. Frontend sudah bisa dibangun. Tahap MVP yang masih tersisa adalah menghubungkan alur buat dan buka tagihan ke API, lalu mencoba demo dari dua browser. Urutan fitur setelah MVP ada di [PRD.md](PRD.md).
+Frontend MVP mencakup alur buat, bagikan, buka, edit, dan hapus tagihan dengan pembagian rata. Kriteria demo dua profil browser ada di [design.md](design.md), dan urutan fitur setelah MVP ada di [PRD.md](PRD.md).

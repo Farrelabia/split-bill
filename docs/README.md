@@ -28,7 +28,7 @@ npm.cmd ci
 npm.cmd run dev
 ```
 
-Buka `http://localhost:3001` untuk halaman awal Next.js. Port `3000` dipakai backend Express.
+Buka `http://localhost:3001` untuk membuat, membuka, dan mengelola tagihan. Jalankan backend Express di port `3000` agar frontend bisa mengakses API. Jika alamat backend berbeda, atur `BILL_API_ORIGIN` sebelum menjalankan dev server atau membuat build frontend.
 
 ## API
 
@@ -71,4 +71,4 @@ Respons gagal berbentuk `{"error":"..."}`. Input tidak valid menghasilkan `400`,
 5. Kirim DELETE dengan kode admin. Ulangi GET dan periksa `404`.
 6. Kirim POST dengan total `0` dan periksa `400`.
 
-Urutan rilis di [PRD](PRD.md) berlanjut dari integrasi alur buat dan buka tagihan di browser ke pembagian custom, riwayat pembayaran, lalu OCR.
+Untuk demo, buat tagihan di satu browser, lalu buka link atau masukkan kode berbagi di jendela privat. Lihat [PRD](PRD.md) untuk urutan fitur setelah MVP.

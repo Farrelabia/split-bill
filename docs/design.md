@@ -42,7 +42,7 @@ Kode admin tampil dalam panel host yang terpisah dengan tombol **Salin kode admi
 
 Saat membuka ulang tagihan, host bisa memakai kode yang tersimpan atau memasukkan kode secara manual melalui **Kelola tagihan**. Kode hanya dikirim ke backend melalui header `x-admin-code` saat menyimpan edit atau menghapus. Express memeriksa kode saat aksi dikirim. Jika ditolak, minta host memasukkan ulang kode dan pertahankan perubahan yang sedang diisi. Link berbagi hanya memuat kode berbagi.
 
-Aksi **Hapus tagihan** meminta konfirmasi yang menyebut judul tagihan. Setelah server mengonfirmasi penghapusan, lupakan kode admin tagihan itu dan kembali ke halaman awal dengan pesan keberhasilan.
+Aksi **Hapus tagihan** membuka dialog yang menyebut judul tagihan. Host mengisi kode admin di dialog setiap kali ingin menghapus, termasuk jika kodenya sudah tersimpan di browser. Setelah server mengonfirmasi penghapusan, lupakan kode admin tagihan itu dan kembali ke halaman awal dengan pesan keberhasilan.
 
 ## Lihat bagian peserta
 
