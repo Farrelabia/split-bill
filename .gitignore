@@ -1,0 +1,19 @@
+# Dependencies and npm output
+node_modules/
+.npm-cache/
+npm-debug.log*
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+
+# Next.js build output
+.next/
+
+# Local OS files
+Thumbs.db
+.DS_Store
+
+work/
+
